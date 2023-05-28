@@ -1,4 +1,9 @@
 @import "./login";
+@import "./home";
+@import "./post";
+body {
+  margin: 0;
+}
 
 input {
   border-radius: 5px;

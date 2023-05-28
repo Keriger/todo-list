@@ -3,7 +3,9 @@ const state = {
   filters: [],
 };
 
-const getters = {};
+const getters = {
+  posts: (state) => state.posts,
+};
 
 const actions = {
   async getPosts({ commit }) {
@@ -21,10 +23,9 @@ const actions = {
 const mutations = {
   getPosts: (state, data) => {
     state.posts = data;
-    localStorage.setItem("user", JSON.stringify(data));
-    state.isAuthenticated = true;
   },
 };
+
 export default {
   state,
   getters,
