@@ -27,3 +27,14 @@ button {
 .mt-1 {
   margin-top: 10px;
 }
+
+.logout {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  &-btn {
+    margin: 10px;
+    background: blue;
+    color: white;
+  }
+}

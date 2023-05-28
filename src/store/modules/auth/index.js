@@ -32,6 +32,11 @@ const mutations = {
     localStorage.setItem("user", JSON.stringify(data));
     state.isAuthenticated = true;
   },
+  logout: (state) => {
+    state.user = null;
+    localStorage.removeItem("user");
+    state.isAuthenticated = false;
+  },
 };
 export default {
   state,
