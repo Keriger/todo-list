@@ -1,6 +1,6 @@
 <template>
   <div class="filters">
-    <div class="filters-bock">
+    <div class="filters-block">
       <div class="filters-title">Фильтры</div>
 
       <div class="mt-1">

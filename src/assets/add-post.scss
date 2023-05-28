@@ -1,0 +1,9 @@
+.add-post {
+  &-block {
+    position: fixed;
+    width: 235px;
+    &__title {
+      text-align: center;
+    }
+  }
+}

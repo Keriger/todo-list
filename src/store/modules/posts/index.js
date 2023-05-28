@@ -40,8 +40,8 @@ const actions = {
         },
         body: JSON.stringify(form),
       });
-      console.log(response);
-      commit("setPost");
+      let result = await response.json();
+      commit("setPost", result);
     } catch (error) {
       console.log(error);
     }
@@ -78,7 +78,7 @@ const mutations = {
     );
   },
   setPost: (state, data) => {
-    state.posts.unshift(data);
+    state.posts.push(data);
   },
   filterTitleTextEdit: (state, data) => {
     state.filterTitleText = data;
