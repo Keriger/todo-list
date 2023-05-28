@@ -1,14 +1,16 @@
 <template>
   <div class="home">
-    <div class="filters">1</div>
-
+    <PostsFilters />
     <PostComponent />
-    <div class="info">3</div>
+    <AddPost />
   </div>
 </template>
 
 <script>
-import PostComponent from "../components/posts/PostComponent.vue";
+import PostComponent from "../components/posts//PostComponent.vue";
+import PostsFilters from "../components/posts/filters/PostsFilters.vue";
+import AddPost from "../components/posts//AddPost.vue";
+
 import { mapActions } from "vuex";
 export default {
   name: "HomeView",
@@ -20,6 +22,8 @@ export default {
   },
   components: {
     PostComponent,
+    PostsFilters,
+    AddPost,
   },
 };
 </script>

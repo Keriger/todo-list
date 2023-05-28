@@ -1,6 +1,6 @@
 <template>
   <div class="posts">
-    <div v-for="post in posts" :key="post.id" class="post">
+    <div v-for="post in postFilters" :key="post.id" class="post">
       <div class="post-header">
         <div class="post-title">{{ postTitleHandler(post) }}</div>
         <div class="post-favorite">{{ post.userId }}</div>
@@ -33,7 +33,14 @@ export default {
     },
   },
   computed: {
-    ...mapGetters(["posts"]),
+    ...mapGetters(["posts", "filterTitleText"]),
+    postFilters() {
+      return this.posts.filter(
+        (data) =>
+          !this.filterTitleText ||
+          data.title.toLowerCase().includes(this.filterTitleText.toLowerCase())
+      );
+    },
   },
 };
 </script>
