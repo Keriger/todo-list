@@ -3,7 +3,9 @@
     <div v-for="post in postFilters" :key="post.id" class="post">
       <div class="post-header">
         <div class="post-title">{{ postTitleHandler(post) }}</div>
-        <div class="post-favorite">{{ post.userId }}</div>
+        <div @click="changeFavoriteStatus(post)" class="post-favorite">
+          {{ postsFavoritesHandler(post) }}
+        </div>
       </div>
       <div class="post-body">
         Info:
@@ -19,9 +21,10 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 export default {
   methods: {
+    ...mapMutations(["changeFavoriteStatus"]),
     postTitleHandler({ title, id }) {
       return id + ". " + title;
     },
@@ -30,6 +33,9 @@ export default {
     },
     postUserIdHandler({ userId }) {
       return `User id: ${userId}`;
+    },
+    postsFavoritesHandler({ favorites }) {
+      return favorites ? "⭐️" : "☆";
     },
   },
   computed: {

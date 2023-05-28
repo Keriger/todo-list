@@ -9,6 +9,10 @@
     border-bottom: 1px solid black;
     padding-bottom: 5px;
   }
+  &-favorite {
+    cursor: pointer;
+    user-select: none;
+  }
   &-body {
     margin-top: 5px;
   }

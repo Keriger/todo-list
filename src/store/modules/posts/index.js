@@ -49,7 +49,33 @@ const actions = {
 };
 const mutations = {
   getPosts: (state, data) => {
-    state.posts = data;
+    let favoritesPosts = [];
+    if (localStorage.getItem("favorites-posts")) {
+      favoritesPosts = JSON.parse(localStorage.getItem("favorites-posts"));
+    }
+
+    state.posts = data.map((item) => ({
+      ...item,
+      favorites: favoritesPosts.includes(item.id),
+    }));
+  },
+  changeFavoriteStatus: (state, { id }) => {
+    const currentPostIdx = state.posts.findIndex((item) => item.id == id);
+    state.posts[currentPostIdx].favorites =
+      !state.posts[currentPostIdx].favorites;
+    let favoritesPosts = [];
+    if (localStorage.getItem("favorites-posts")) {
+      favoritesPosts = JSON.parse(localStorage.getItem("favorites-posts"));
+    }
+    if (favoritesPosts.includes(id)) {
+      favoritesPosts = favoritesPosts.filter((item) => item != id);
+    } else {
+      favoritesPosts.push(id);
+    }
+    favoritesPosts = localStorage.setItem(
+      "favorites-posts",
+      JSON.stringify(favoritesPosts)
+    );
   },
   setPost: (state, data) => {
     state.posts.unshift(data);
