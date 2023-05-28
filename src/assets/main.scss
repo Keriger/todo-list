@@ -1,0 +1,18 @@
+@import "./login";
+
+input {
+  border-radius: 5px;
+  border: 0;
+  padding: 6px;
+  margin: 10px 0;
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+button {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
